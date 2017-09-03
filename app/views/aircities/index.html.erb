@@ -1,0 +1,18 @@
+<table class="table">
+<tr>
+  <th>City</th>
+  <th>pinyin</th>
+  <th>AQI</th>
+</tr>
+<% @aircities.each do |aircity| %>
+  <tr>
+    <td><%= aircity.name %></td>
+    <td><%= aircity.pinyin %></td>
+
+    <td>
+      <%= aircity.current_aqi %>
+      <%= link_to "更新AQI", update_aqi_aircity_path(aircity), :method => :post %>
+    </td>
+  </tr>
+<% end %>
+</table>

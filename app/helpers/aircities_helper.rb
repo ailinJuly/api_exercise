@@ -1,0 +1,2 @@
+module AircitiesHelper
+end

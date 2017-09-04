@@ -11,7 +11,7 @@ class AircitiesController < ApplicationController
                               :params => { :city => aircity.pinyin, :key => "ee3141e71f01bcc70448909b19492cc4" }
     data = JSON.parse(response.body)
 
-    aircity.update( :current_aqi => data["result"]["AQI"])
+    aircity.update( :aqi => data["result"]["AQI"])
 
     redirect_to aircities_path
 end

@@ -9,5 +9,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :reservations
 
-
+  mount_uploader :avatar, AvatarUploader
 end

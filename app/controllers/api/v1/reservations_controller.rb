@@ -5,19 +5,6 @@ class Api::V1::ReservationsController < ApiController
   def index
     @reservations = current_user.reservations
 
-    render :json => {
-      :data => @reservations.map{|reservation|
-        {
-          :booking_code => reservation.booking_code,
-          :train_number => reservation.train.number,
-          :seat_number => reservation.seat_number,
-          :customer_name => reservation.customer_name,
-          :customer_phone => reservation.customer_phone
-
-        }
-      }
-    }
-
   end
 
   def create
@@ -38,13 +25,6 @@ class Api::V1::ReservationsController < ApiController
 
    def show
      @reservation = Reservation.find_by_booking_code!( params[:booking_code])
-     render :json => {
-       :booking_code => @reservation.booking_code,
-       :train_number => @reservation.train.number,
-       :seat_number => @reservation.seat_number,
-       :customer_name => @reservation.customer_name,
-       :customer_phone => @reservation.customer_phone
-     }
 
    end
 
